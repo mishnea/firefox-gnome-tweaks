@@ -1,0 +1,79 @@
+/* Quick Settings */
+
+.tabbrowser-tab[class*="identity-color-"] .tab-content::before {
+	/* Container icons */
+	--width-inactive: min(100%, 666px);
+	--width-scale-active: 133%;
+
+	--height-inactive: 5px;
+	--height-scale-active: 150%;
+
+	--opacity-inactive: 90%;
+	--opacity-active: 100%;
+
+	--transition-duration: 0.1s;
+	
+	/* Pulse scale is relative to inactive dimensions */
+	--width-scale-pulse: 200%;
+	--height-scale-pulse: 200%;
+	--pulse-duration: 0.2s;
+}
+
+.tab-icon-overlay {
+	/* Mute icon */
+	--background-color: #111c;
+}
+
+
+/* Container icons */
+
+.tabbrowser-tab.tabbrowser-tab[class*="identity-color-"] .tab-content {
+	position: relative;
+	overflow: hidden;
+}
+
+.tabbrowser-tab.tabbrowser-tab[class*="identity-color-"] .tab-content::before {
+	position: absolute;
+	left: 0;
+	right: auto;
+	top: calc(-1 * var(--height-inactive));
+	width: var(--width-inactive);
+	height: calc(2 * var(--height-inactive));
+	z-index: 100;
+	margin: 0;
+	border-radius: 0;
+	background: none;
+	background-image: radial-gradient(ellipse closest-side, var(--identity-icon-color), transparent);
+	opacity: var(--opacity-inactive);
+	transition: opacity transform;
+	transition-duration: var(--transition-duration);
+}
+
+.tabbrowser-tab.tabbrowser-tab[class*="identity-color-"]:hover .tab-content::before,
+.tabbrowser-tab.tabbrowser-tab[class*="identity-color-"][selected] .tab-content::before {
+	transform: scale(var(--width-scale-active), var(--height-scale-active));
+	opacity: var(--opacity-active);
+}
+
+.tabbrowser-tab.tabbrowser-tab[class*="identity-color-"][selected] .tab-content::before {
+	animation: pulse var(--pulse-duration) ease-out 0s 1;
+}
+
+@keyframes pulse {
+	30% {transform: scale(var(--width-scale-pulse), var(--height-scale-pulse))};
+}
+
+
+/* Mute icon overlay */
+
+.tab-icon-overlay {
+	stroke: none !important;
+	z-index: 100 !important;
+	--tab-icon-overlay-stroke: var(--background-color);
+}
+
+.tab-icon-overlay:is([pinned]) {
+	width: 12px !important;
+	height: 12px !important;
+	padding: 2px !important;
+}
