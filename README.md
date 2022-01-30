@@ -18,7 +18,7 @@ Removes the stroke from the muted tab icon. Makes the icon smaller to prevent th
 
 1. Install the [Firefox GNOME theme](https://github.com/rafaelmardojai/firefox-gnome-theme/) if you don't have it already
 2. Clone this repository
-3. In the URL bar, navigate to to `about:profiles`
+3. In the URL bar, navigate to `about:profiles`
 4. Open the root directory of the profile you want to change
 5. Navigate to `chrome/firefox-gnome-theme/`
 6. Copy `customChrome.css` there or make a symbolic link
