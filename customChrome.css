@@ -34,8 +34,7 @@
 
 .tabbrowser-tab.tabbrowser-tab[class*="identity-color-"] .tab-content::before {
 	position: absolute;
-	left: 0;
-	right: auto;
+	right: unset;
 	top: calc(-1 * var(--height-inactive));
 	width: var(--width-inactive);
 	height: calc(2 * var(--height-inactive));
@@ -47,6 +46,11 @@
 	opacity: var(--opacity-inactive);
 	transition: opacity transform;
 	transition-duration: var(--transition-duration);
+}
+
+.tab-icon-stack {
+	/* Recentre title in container tabs */
+	margin-left: auto;
 }
 
 .tabbrowser-tab.tabbrowser-tab[class*="identity-color-"]:hover .tab-content::before,
