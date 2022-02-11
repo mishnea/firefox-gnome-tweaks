@@ -14,7 +14,7 @@
 	--transition-duration: 0.1s;
 	
 	/* Pulse scale is relative to inactive dimensions */
-	--width-scale-pulse: 200%;
+	--width-scale-pulse: var(--width-scale-active);
 	--height-scale-pulse: 200%;
 	--pulse-duration: 0.2s;
 }
